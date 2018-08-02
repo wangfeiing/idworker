@@ -147,13 +147,3 @@ class SnowflakeIdWorker {
         return  intval(microtime(true) * 1000);
     }
 }
-//==============================Test=============================================
-/** 测试 */
-function test() {
-    $idWorker = new SnowflakeIdWorker(0, 0);
-    for ($i = 0; $i < 1000; $i++) {
-        $id = $idWorker->nextId();
-        // echo $id . PHP_EOL;
-    }
-}
-test();
