@@ -25,3 +25,23 @@ $id = $idWorker->nextId();
 echo $id . PHP_EOL;
 
 ```
+# 多机部署
+```
+// 引入文件
+include './IdWorker.php';
+
+//多机部署的情况下 需要指定工作机器的ID 和 数据中心的ID
+//每个节点要保持  $workerId 和  $datacenterId 与其他节点不相同
+//另 用一个二维的($workerId,$datacenterId)来唯一标示一个机器
+$workerId = 0;
+$datacenterId = 0
+
+//实例化对象
+$idWorker = new SnowflakeIdWorker($workerId, $datacenterId);
+//获取ID
+$id = $idWorker->nextId();
+
+echo $id . PHP_EOL;
+
+```
+ID生成器部署完成以后，需要RPC的方式对外提供服务。
