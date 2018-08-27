@@ -76,13 +76,13 @@ class SnowflakeIdWorker {
         $this->sequence = 0;
         /** 上次生成ID的时间截 */
         $this->lastTimestamp = -1;
-
+        
 
         if ($workerId > $maxWorkerId || $workerId < 0) {
-            throw new Exception(String.format("worker Id can't be greater than %d or less than 0", maxWorkerId));
+            throw new Exception(sprintf("worker Id can't be greater than %d or less than 0", $maxWorkerId));
         }
         if ($datacenterId > $maxDatacenterId || $datacenterId < 0) {
-            throw new Exception(String.format("datacenter Id can't be greater than %d or less than 0", maxDatacenterId));
+            throw new Exception(sprintf("datacenter Id can't be greater than %d or less than 0", $maxDatacenterId));
         }
         $this->workerId = $workerId;
         $this->datacenterId = $datacenterId;
